@@ -1,0 +1,781 @@
+{
+  "營運時間": {
+    "type": "bubble",
+    "hero": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "image",
+          "url": "https://i.ibb.co/ymsdqL0S/e47b098d-52be-4b3f-af03-9c018927972d.png",
+          "size": "full",
+          "aspectMode": "cover",
+          "aspectRatio": "16:9"
+        }
+      ]
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "backgroundColor": "#332A00",
+              "cornerRadius": "md",
+              "paddingStart": "8px",
+              "paddingEnd": "8px",
+              "paddingTop": "2px",
+              "paddingBottom": "2px",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "遊園資訊",
+                  "color": "#D4AF37",
+                  "size": "xs",
+                  "weight": "bold",
+                  "align": "center"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "今日營運時間",
+          "weight": "bold",
+          "size": "lg",
+          "margin": "md",
+          "wrap": true,
+          "color": "#111111",
+          "align": "center"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "lg",
+          "spacing": "xs",
+          "backgroundColor": "#F7F8FA",
+          "cornerRadius": "lg",
+          "paddingAll": "md",
+          "alignItems": "center",
+          "contents": [
+            {
+              "type": "text",
+              "text": "09:00 ～ 17:00",
+              "weight": "bold",
+              "size": "xl",
+              "color": "#E63946",
+              "align": "center"
+            },
+            {
+              "type": "text",
+              "text": "04-2332-3000",
+              "size": "lg",
+              "color": "#666666",
+              "margin": "xs",
+              "align": "center"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "lg",
+          "backgroundColor": "#F0F4F8",
+          "cornerRadius": "md",
+          "paddingAll": "md",
+          "contents": [
+            {
+              "type": "text",
+              "text": "實際設施開放狀況與營運時間，依現場及當日公告為準。",
+              "size": "xs",
+              "color": "#5A6B7C",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "sm",
+      "contents": [
+        {
+          "type": "button",
+          "style": "primary",
+          "color": "#1DB446",
+          "action": {
+            "type": "uri",
+            "label": "查看樂園公告",
+            "uri": "http://127.0.0.1:5000/announcements"
+          }
+        }
+      ]
+    }
+  },
+  "優惠活動": {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://i.ibb.co/5PGWv1z/Gemini-Generated-Image-e2ok9ae2ok9ae2ok-1.png",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "16:9"
+            }
+          ]
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "backgroundColor": "#332A00",
+                  "cornerRadius": "md",
+                  "paddingStart": "8px",
+                  "paddingEnd": "8px",
+                  "paddingTop": "2px",
+                  "paddingBottom": "2px",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "尋人啟事，期間限定",
+                      "color": "#D4AF37",
+                      "size": "md",
+                      "weight": "bold",
+                      "style": "normal",
+                      "align": "center"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "『朝陽』在哪裡?",
+              "weight": "bold",
+              "size": "xxl",
+              "margin": "md",
+              "wrap": true,
+              "color": "#111111",
+              "align": "start"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "backgroundColor": "#F7F8FA",
+              "cornerRadius": "lg",
+              "paddingAll": "md",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "最低0元起",
+                      "weight": "bold",
+                      "size": "xl",
+                      "color": "#E63946",
+                      "flex": 0
+                    },
+                    {
+                      "type": "text",
+                      "text": "原價 NT$999",
+                      "decoration": "line-through",
+                      "color": "#888888",
+                      "size": "xs",
+                      "margin": "md"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "✦ 符合任一條件即可享有優惠",
+                  "weight": "bold",
+                  "size": "sm",
+                  "color": "#D4AF37"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "margin": "md",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "1.",
+                      "size": "xs",
+                      "color": "#555555",
+                      "weight": "bold",
+                      "margin": "xl"
+                    },
+                    {
+                      "type": "text",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true,
+                      "text": "姓名任一字同音同字「朝」、「陽」享門票半價"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "margin": "md",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": " 2.",
+                      "size": "xs",
+                      "color": "#555555",
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "text": "姓名同音同字「朝陽」享門票免費",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true,
+                      "margin": "xs"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "style": "primary",
+              "color": "#1DB446",
+              "action": {
+                "type": "uri",
+                "label": "加入朝陽主題樂園官方客服",
+                "uri": "https://line.me"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://i.ibb.co/5PGWv1z/Gemini-Generated-Image-e2ok9ae2ok9ae2ok-1.png",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "16:9"
+            }
+          ]
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "backgroundColor": "#332A00",
+                  "cornerRadius": "md",
+                  "paddingStart": "8px",
+                  "paddingEnd": "8px",
+                  "paddingTop": "2px",
+                  "paddingBottom": "2px",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "尋人啟事，期間限定",
+                      "color": "#D4AF37",
+                      "size": "md",
+                      "weight": "bold",
+                      "style": "normal",
+                      "align": "center"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "尾號『1、6、8』在哪裡? ",
+              "weight": "bold",
+              "size": "xxl",
+              "margin": "md",
+              "wrap": true,
+              "color": "#111111"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "backgroundColor": "#F7F8FA",
+              "cornerRadius": "lg",
+              "paddingAll": "md",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "最低0元起",
+                      "weight": "bold",
+                      "size": "xl",
+                      "color": "#E63946",
+                      "flex": 0
+                    },
+                    {
+                      "type": "text",
+                      "text": "原價 NT$999",
+                      "decoration": "line-through",
+                      "color": "#888888",
+                      "size": "xs",
+                      "margin": "md"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "✦ 符合任一條件即可享有優惠",
+                  "weight": "bold",
+                  "size": "sm",
+                  "color": "#D4AF37"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "margin": "md",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": " 1.",
+                      "size": "xs",
+                      "color": "#555555",
+                      "weight": "bold",
+                      "margin": "xl"
+                    },
+                    {
+                      "type": "text",
+                      "text": "身分證號出現其中任兩碼「1、6、8」(可重複出現)  門票半價",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "margin": "md",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": " 2.",
+                      "size": "xs",
+                      "color": "#555555",
+                      "weight": "bold",
+                      "margin": "xs"
+                    },
+                    {
+                      "type": "text",
+                      "size": "sm",
+                      "color": "#333333",
+                      "wrap": true,
+                      "text": "身分證號出現其中任三碼「1、6、8」(可重複出現)  門票免費"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "style": "primary",
+              "color": "#1DB446",
+              "action": {
+                "type": "uri",
+                "label": "加入朝陽主題樂園官方客服",
+                "uri": "https://line.me"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "樂園資訊": {
+    "type": "bubble",
+    "size": "giga",
+    "hero": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "image",
+          "url": "https://i.ibb.co/5PGWv1z/Gemini-Generated-Image-e2ok9ae2ok9ae2ok-1.png",
+          "size": "full",
+          "aspectMode": "cover",
+          "aspectRatio": "16:9"
+        }
+      ]
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "backgroundColor": "#332A00",
+              "cornerRadius": "md",
+              "paddingStart": "8px",
+              "paddingEnd": "8px",
+              "paddingTop": "2px",
+              "paddingBottom": "2px",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "交通指南",
+                  "color": "#D4AF37",
+                  "size": "xs",
+                  "weight": "bold",
+                  "align": "center"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "樂園資訊",
+          "weight": "bold",
+          "size": "xxl",
+          "color": "#111111"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "backgroundColor": "#F7F8FA",
+          "cornerRadius": "lg",
+          "paddingAll": "md",
+          "margin": "md",
+          "contents": [
+            {
+              "type": "text",
+              "text": "📍 台中市霧峰區吉峰東路 168 號",
+              "size": "sm",
+              "color": "#333333",
+              "weight": "bold"
+            }
+          ]
+        },
+        {
+          "type": "separator",
+          "margin": "lg",
+          "color": "#E0E0E0"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "lg",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "✈️ 桃園國際機場出發",
+              "color": "#D4AF37",
+              "size": "sm",
+              "weight": "bold"
+            },
+            {
+              "type": "text",
+              "text": "搭乘國光/統聯客運至台中火車站，轉乘 131、132、158、249 或 281延 公車抵達。",
+              "size": "xs",
+              "color": "#666666",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "md",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "🚆 台中火車站出發",
+              "color": "#D4AF37",
+              "size": "sm",
+              "weight": "bold"
+            },
+            {
+              "type": "text",
+              "text": "搭乘計程車前往，車程約 20 分鐘。",
+              "size": "xs",
+              "color": "#666666",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "md",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "🚄 高鐵台中站出發",
+              "color": "#D4AF37",
+              "size": "sm",
+              "weight": "bold"
+            },
+            {
+              "type": "text",
+              "text": "經台 74 線銜接國道 3 號霧峰交流道下(約 25 分)；或搭乘 133、151、158 路公車。",
+              "size": "xs",
+              "color": "#666666",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "md",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "🚗 自行開車",
+              "color": "#D4AF37",
+              "size": "sm",
+              "weight": "bold"
+            },
+            {
+              "type": "text",
+              "text": "【國道 1 號】彰化系統轉國道 3 號，霧峰交流道下。\n【國道 3 號】211k 霧峰交流道下，約 8 分鐘抵達。",
+              "size": "xs",
+              "color": "#666666",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "md",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "🚌 其他公車路線",
+              "color": "#D4AF37",
+              "size": "sm",
+              "weight": "bold"
+            },
+            {
+              "type": "text",
+              "text": "搭乘 107、108、201、綠3、50、243 或 17 路至霧峰分局，再轉乘 132 或 151 路。",
+              "size": "xs",
+              "color": "#666666",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "sm",
+      "contents": [
+        {
+          "type": "button",
+          "style": "primary",
+          "color": "#1DB446",
+          "action": {
+            "type": "uri",
+            "label": "開啟地圖導航",
+            "uri": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E5%90%89%E5%B3%B0%E6%9D%B1%E8%B7%AF168%E8%99%9F"
+          }
+        },
+        {
+          "type": "button",
+          "style": "secondary",
+          "action": {
+            "type": "message",
+            "label": "查看完整交通資訊",
+            "text": "查看完整交通資訊"
+          }
+        }
+      ]
+    }
+  },
+  "交通資訊": {
+    "type": "bubble",
+    "size": "micro",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "請選擇查詢工具",
+          "weight": "bold",
+          "size": "md",
+          "color": "#111111",
+          "align": "center"
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "sm",
+      "contents": [
+        {
+          "type": "button",
+          "style": "primary",
+          "color": "#1DB446",
+          "action": {
+            "type": "uri",
+            "label": "🚌 公車動態",
+            "uri": "https://citybus.taichung.gov.tw/"
+          }
+        },
+        {
+          "type": "button",
+          "style": "primary",
+          "color": "#005599",
+          "action": {
+            "type": "uri",
+            "label": "🚆 台鐵時刻表",
+            "uri": "https://tip.railway.gov.tw/tra-tip-web/tip"
+          }
+        },
+        {
+          "type": "button",
+          "style": "primary",
+          "color": "#EA5514",
+          "action": {
+            "type": "uri",
+            "label": "🚄 高鐵時刻表",
+            "uri": "https://www.thsrc.com.tw/"
+          }
+        }
+      ]
+    }
+  },
+  "聯絡資訊": {
+    "type": "bubble",
+    "size": "micro",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "paddingAll": "xl",
+      "contents": [
+        {
+          "type": "text",
+          "text": "聯絡我們",
+          "weight": "bold",
+          "size": "xl",
+          "color": "#111111"
+        },
+        {
+          "type": "text",
+          "text": "有任何問題或需要協助嗎？\n隨時歡迎找我們！",
+          "margin": "md",
+          "size": "sm",
+          "color": "#666666",
+          "wrap": true
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "sm",
+      "contents": [
+        {
+          "type": "button",
+          "style": "primary",
+          "color": "#1DB446",
+          "action": {
+            "type": "uri",
+            "label": "填寫線上表單",
+            "uri": "https://docs.google.com/forms/d/e/1FAIpQLSfSe6gJYBv63wkzlAVNolmhESg_3XbzKqPf_W3wFPWP4znJvw/viewform?usp=header"
+          }
+        }
+      ]
+    }
+  }
+}

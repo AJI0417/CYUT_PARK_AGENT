@@ -1,0 +1,1105 @@
+/* 朝陽主題樂園介紹頁：顏色與共用版面 */
+:root {
+  --sky: #f4fbff;
+  --white: #ffffff;
+  --navy: #17315e;
+  --text: #274667;
+  --cyan: #2aafc5;
+  --orange: #ffad5a;
+  --coral: #f56f79;
+  --shadow: 0 24px 65px rgba(23, 49, 94, 0.13);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--navy);
+  background: var(--sky);
+  font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+.site-shell {
+  overflow: hidden;
+}
+
+.wrap {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* 品牌列與首屏 */
+.site-header {
+  width: min(1280px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 18px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.brand-logo {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: grid;
+  gap: 2px;
+}
+
+.brand-text strong {
+  font-size: 1.08rem;
+  letter-spacing: 0.025em;
+}
+
+.brand-text span {
+  color: #557088;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.header-caption {
+  margin: 0;
+  color: #52768c;
+  font-size: 0.86rem;
+  letter-spacing: 0.05em;
+}
+
+.hero {
+  width: min(1280px, calc(100% - 48px));
+  min-height: 650px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 49% 51%;
+  background: linear-gradient(125deg, #e9f8fc 0%, #f8fdff 50%, #e9f8fc 100%);
+  border: 1px solid #d8edf4;
+  border-radius: 34px;
+  position: relative;
+  box-shadow: 0 18px 60px rgba(34, 119, 147, 0.08);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 370px;
+  height: 370px;
+  left: -130px;
+  top: -130px;
+  border: 1px solid rgba(42, 175, 197, 0.18);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-copy {
+  z-index: 1;
+  align-self: center;
+  padding: 62px clamp(32px, 5vw, 78px);
+}
+
+.hero-lead {
+  display: inline-block;
+  margin-bottom: 25px;
+  padding: 9px 16px;
+  border: 1px solid #b8e6ef;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.68);
+  color: #176b86;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin-bottom: 27px;
+  font-size: clamp(3.05rem, 4.5vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.19;
+}
+
+.hero h1 .hero-title-accent {
+  color: #156f8d;
+}
+
+.hero-statement {
+  max-width: 540px;
+  margin-bottom: 15px;
+  font-size: clamp(1.12rem, 1.5vw, 1.34rem);
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.hero-description {
+  max-width: 545px;
+  margin-bottom: 34px;
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+.hero-trail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #47839a;
+  font-size: 0.83rem;
+}
+
+.hero-trail span:first-child {
+  width: 41px;
+  height: 2px;
+  background: var(--cyan);
+}
+
+.hero-visual {
+  min-width: 0;
+  margin: 10px 10px 10px 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 80px 25px 140px 30px;
+  background: #b8dfec;
+}
+
+.hero-visual>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 66% center;
+}
+
+.hero-image-glow {
+  position: absolute;
+  inset: auto 0 0;
+  height: 38%;
+  background: linear-gradient(transparent, rgba(19, 54, 89, 0.27));
+  pointer-events: none;
+}
+
+.visual-caption {
+  position: absolute;
+  right: 28px;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 17px;
+  color: var(--white);
+  background: rgba(16, 60, 84, 0.58);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.43);
+  border-radius: 100px;
+  font-size: 0.84rem;
+}
+
+.caption-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 13px var(--orange);
+}
+
+.wheel-outline {
+  position: absolute;
+  top: 30px;
+  left: 34px;
+  width: 112px;
+  height: 152px;
+  opacity: 0.84;
+  pointer-events: none;
+}
+
+.wheel-rim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 112px;
+  height: 112px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 255, 255, 0.7) 0deg 1.5deg, transparent 1.5deg 45deg);
+}
+
+.wheel-rim::after {
+  content: "";
+  position: absolute;
+  inset: 43px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.wheel-stand {
+  position: absolute;
+  top: 62px;
+  left: 54px;
+  width: 2px;
+  height: 86px;
+  background: rgba(255, 255, 255, 0.8);
+  transform: rotate(-22deg);
+  transform-origin: top;
+}
+
+.wheel-stand::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 86px;
+  background: rgba(255, 255, 255, 0.8);
+  transform: rotate(44deg);
+  transform-origin: top;
+}
+
+/* 三端介紹：中央路線把三個不同情境串起來 */
+.journey-intro {
+  max-width: 760px;
+  padding: 118px 0 48px;
+  text-align: center;
+}
+
+.intro-mark {
+  display: block;
+  margin-bottom: 17px;
+  color: var(--orange);
+  font-size: 2rem;
+}
+
+.journey-intro h2 {
+  margin-bottom: 18px;
+  font-size: clamp(2.1rem, 3vw, 3.2rem);
+  line-height: 1.35;
+  letter-spacing: -0.04em;
+}
+
+.journey-intro p {
+  margin-bottom: 0;
+  color: var(--text);
+  font-size: 1.04rem;
+  line-height: 1.9;
+}
+
+.journey {
+  position: relative;
+  padding: 16px 0;
+}
+
+.journey-track {
+  position: absolute;
+  z-index: 0;
+  top: 8%;
+  bottom: 8%;
+  left: calc(50% - 1px);
+  width: 2px;
+  background: #d0e8ee;
+}
+
+.journey-progress {
+  display: block;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(var(--orange), var(--cyan));
+  box-shadow: 0 0 12px rgba(42, 175, 197, 0.7);
+}
+
+.journey-stop {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 88px minmax(0, 1fr);
+  align-items: center;
+  min-height: 510px;
+  position: relative;
+  z-index: 1;
+}
+
+.stop-node {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--cyan);
+  border-radius: 50%;
+  background: var(--sky);
+  box-shadow: 0 0 0 8px var(--sky);
+}
+
+.stop-node span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.stop-copy {
+  grid-column: 1;
+  grid-row: 1;
+  padding: 25px 42px 25px 12px;
+}
+
+.journey-stop--reverse .stop-copy {
+  grid-column: 3;
+  padding: 25px 8px 25px 44px;
+}
+
+.role-name {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 18px;
+  color: #28718b;
+  font-size: 0.93rem;
+  font-weight: 700;
+}
+
+.role-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  font-size: 1.13rem;
+}
+
+.role-icon--visitor {
+  color: #087c97;
+  background: #cef2f6;
+}
+
+.role-icon--manager {
+  color: #ae661a;
+  background: #ffedcf;
+}
+
+.role-icon--worker {
+  color: #b54f63;
+  background: #ffe0e4;
+}
+
+.stop-copy h3 {
+  max-width: 500px;
+  margin-bottom: 20px;
+  font-size: clamp(2rem, 2.8vw, 3.25rem);
+  line-height: 1.3;
+  letter-spacing: -0.045em;
+}
+
+.stop-copy>p:not(.role-name) {
+  max-width: 510px;
+  margin-bottom: 25px;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.92;
+}
+
+.feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature-tags li {
+  padding: 8px 13px;
+  border: 1px solid #cbe4eb;
+  border-radius: 100px;
+  color: #306c85;
+  background: rgba(255, 255, 255, 0.68);
+  font-size: 0.81rem;
+  font-weight: 700;
+}
+
+.stop-scene {
+  grid-column: 3;
+  grid-row: 1;
+  min-height: 370px;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow);
+}
+
+.journey-stop--reverse .stop-scene {
+  grid-column: 1;
+}
+
+.visitor-scene {
+  border-radius: 46px 132px 52px 132px;
+  background: radial-gradient(circle at 78% 16%, #ffffff 0, #daf7fa 38%, #b9e8f0 100%);
+}
+
+.manager-scene {
+  border-radius: 132px 48px 132px 50px;
+  background: radial-gradient(circle at 18% 22%, #fff7e9 0, #ffe8c4 45%, #fbdab7 100%);
+}
+
+.worker-scene {
+  border-radius: 46px 126px 52px 126px;
+  background: radial-gradient(circle at 77% 16%, #fff 0, #e4f5f5 45%, #cce8e8 100%);
+}
+
+.scene-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.scene-shine {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 42%;
+  opacity: 0;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+  pointer-events: none;
+}
+/* 模型協作：使用各品牌提供的原版標誌，不替標誌加特效。 */
+.model-section {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: center;
+  gap: 60px;
+  margin-top: 100px;
+  margin-bottom: 92px;
+  padding: 70px;
+  border-radius: 45px;
+  color: white;
+  background: radial-gradient(circle at 91% 13%, #257092 0, #17315e 43%, #10284f 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.model-section::before {
+  content: "";
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  right: -140px;
+  top: -210px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.model-copy,
+.model-diagram {
+  position: relative;
+  z-index: 1;
+}
+
+.model-kicker {
+  margin-bottom: 16px;
+  color: #9ae1ee;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.model-copy h2 {
+  margin-bottom: 20px;
+  font-size: clamp(2.2rem, 3vw, 3.6rem);
+  line-height: 1.28;
+  letter-spacing: -0.04em;
+}
+
+.model-copy>p:last-child {
+  margin-bottom: 0;
+  color: #d8e7ef;
+  font-size: 0.97rem;
+  line-height: 1.95;
+}
+
+.model-diagram {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.model-node {
+  min-height: 190px;
+  padding: 21px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.11);
+  backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 1;
+}
+
+.model-node small {
+  margin-top: 14px;
+  margin-bottom: 6px;
+  color: #c5e8ef;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.model-node strong {
+  font-size: clamp(0.94rem, 1.35vw, 1.15rem);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.node-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.node-icon img {
+  display: block;
+  max-width: 38px;
+  max-height: 38px;
+  object-fit: contain;
+}
+
+.model-signal {
+  position: absolute;
+  z-index: 0;
+  left: 8%;
+  right: 8%;
+  top: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), #91ebf5, var(--coral));
+  transform: scaleX(0);
+  transform-origin: left;
+  box-shadow: 0 0 17px #9de9f4;
+}
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 28px 0 43px;
+  border-top: 1px solid #d5e9ef;
+  color: #557287;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+
+.site-footer p span {
+  margin: 0 3px;
+}
+
+.footer-star {
+  color: var(--orange);
+  font-size: 1.6rem;
+}
+
+/* 簡單動畫交給 CSS；加上 is-visible 時播放，移除後下次可重播。
+   時間單位：ms = 毫秒，s = 秒。animation 的第一個時間是播放時長；
+   若有第二個時間（例如首圖的 210ms），則是開始前的等待時間。 */
+.brand-lockup {
+  animation: header-enter 650ms ease-out both;
+}
+
+.hero-copy > :not([data-text-animate]) {
+  animation: copy-enter 760ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+/* animation-delay 只調整開始時機，不會改變播放速度。
+   主標題與短句使用 Anime.js，不在這裡調整。 */
+.hero-copy > :nth-child(1) { animation-delay: 120ms; }
+.hero-copy > :nth-child(4) { animation-delay: 450ms; }
+.hero-copy > :nth-child(5) { animation-delay: 560ms; }
+
+.hero-visual {
+  /* 首圖：播放 950ms，等待 210ms 後開始。 */
+  animation: hero-enter 950ms cubic-bezier(0.2, 0.7, 0.25, 1) 210ms both;
+}
+
+.wheel-rim {
+  /* 30s 是摩天輪轉完一圈的時間；數值越大，轉得越慢。 */
+  animation: wheel-turn 30s linear infinite;
+}
+
+.caption-dot {
+  /* 1400ms 是光點從原狀到放大狀態的時間，alternate 讓它反向縮回。 */
+  animation: dot-pulse 1400ms ease-in-out infinite alternate;
+}
+
+.journey-intro.is-visible .intro-mark {
+  animation: mark-enter 650ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.journey-intro.is-visible p {
+  animation: copy-enter 700ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.journey-intro.is-visible p {
+  animation-delay: 130ms;
+}
+
+.journey-stop.is-visible .stop-node {
+  animation: node-enter 600ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.journey-stop.is-visible .stop-copy > :not([data-text-animate]) {
+  animation: stop-copy-enter 700ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.journey-stop--reverse.is-visible .stop-copy > :not([data-text-animate]) {
+  animation-name: reverse-copy-enter;
+}
+
+/* 三端說明與標籤的錯開時間；標題的逐字速度要到 home.js 調整。 */
+.journey-stop.is-visible .stop-copy > :nth-child(3) { animation-delay: 210ms; }
+.journey-stop.is-visible .stop-copy > :nth-child(4) { animation-delay: 315ms; }
+
+.journey-stop.is-visible .stop-scene {
+  animation: scene-enter 850ms cubic-bezier(0.2, 0.7, 0.25, 1) 180ms both;
+}
+
+.journey-stop.is-visible .scene-shine {
+  animation: scene-sweep 1100ms ease-in-out 540ms both;
+}
+
+.model-section.is-visible .model-copy > :not([data-text-animate]) {
+  animation: model-copy-enter 720ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.model-section.is-visible .model-copy > :last-child {
+  animation-delay: 160ms;
+}
+
+.model-section.is-visible .model-node {
+  /* backwards 只保留動畫開始前的狀態，結束後交還給 hover 樣式。 */
+  animation: model-card-enter 720ms cubic-bezier(0.2, 0.7, 0.25, 1) backwards;
+}
+
+.model-section.is-visible .model-node:nth-child(1) { animation-delay: 130ms; }
+.model-section.is-visible .model-node:nth-child(2) { animation-delay: 270ms; }
+.model-section.is-visible .model-node:nth-child(3) { animation-delay: 410ms; }
+
+.model-section.is-visible .model-signal {
+  animation: signal-enter 900ms cubic-bezier(0.2, 0.7, 0.25, 1) 450ms both;
+}
+
+.site-footer.is-visible {
+  animation: footer-enter 650ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.site-footer.is-visible .footer-star {
+  animation: star-turn 700ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+/* 滑鼠互動只用 CSS transition；其中 560ms、280ms 是移入／移出的過渡時長。
+   觸控裝置不依賴懸停。 */
+@media (hover: hover) and (pointer: fine) {
+  .hero-visual > img,
+  .scene-image {
+    transition: transform 560ms cubic-bezier(0.2, 0.7, 0.25, 1);
+  }
+
+  .hero-visual:hover > img {
+    transform: scale(1.045);
+  }
+
+  .stop-scene:hover .scene-image {
+    transform: scale(1.07);
+  }
+
+  .model-node {
+    transition: transform 280ms ease-out, background-color 280ms ease-out;
+  }
+
+  .model-node:hover {
+    transform: translateY(-8px) scale(1.025);
+    background-color: rgba(255, 255, 255, 0.17);
+  }
+}
+
+@keyframes header-enter {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes copy-enter {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-enter {
+  from { opacity: 0; transform: translateX(32px) scale(0.96); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes wheel-turn {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes dot-pulse {
+  to { opacity: 0.55; transform: scale(1.45); }
+}
+
+@keyframes mark-enter {
+  from { opacity: 0; transform: scale(0.5) rotate(-35deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes node-enter {
+  from { opacity: 0; transform: scale(0.45); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes stop-copy-enter {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes reverse-copy-enter {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scene-enter {
+  from { opacity: 0; transform: translateY(35px) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes scene-sweep {
+  0% { opacity: 0; transform: translateX(0); }
+  45% { opacity: 0.7; }
+  100% { opacity: 0; transform: translateX(420%); }
+}
+
+@keyframes model-copy-enter {
+  from { opacity: 0; transform: translateX(-22px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes model-card-enter {
+  from { opacity: 0; transform: translateY(30px) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes signal-enter {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes footer-enter {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes star-turn {
+  from { transform: rotate(0) scale(0.6); }
+  to { transform: rotate(90deg) scale(1); }
+}
+
+/* 平板與手機 */
+@media (max-width: 1000px) {
+  .hero {
+    min-height: 580px;
+  }
+
+  .hero-copy {
+    padding: 45px 34px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.75rem, 4.8vw, 4rem);
+  }
+
+  .journey-stop {
+    grid-template-columns: minmax(0, 1fr) 62px minmax(0, 1fr);
+    min-height: 460px;
+  }
+
+  .stop-copy {
+    padding-right: 22px;
+  }
+
+  .journey-stop--reverse .stop-copy {
+    padding-left: 22px;
+  }
+
+  .stop-scene {
+    min-height: 330px;
+  }
+
+  .model-section {
+    gap: 28px;
+    padding: 50px 40px;
+  }
+}
+
+@media (max-width: 720px) {
+
+  .wrap,
+  .site-header,
+  .hero {
+    width: min(100% - 28px, 580px);
+  }
+
+  .site-header {
+    padding: 14px 0 18px;
+  }
+
+  .brand-logo {
+    width: 57px;
+    height: 57px;
+  }
+
+  .brand-text strong {
+    font-size: 0.98rem;
+  }
+
+  .header-caption {
+    display: none;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    border-radius: 27px;
+  }
+
+  .hero-copy {
+    padding: 39px 26px 31px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 9vw, 3.5rem);
+  }
+
+  .hero-lead {
+    margin-bottom: 20px;
+  }
+
+  .hero-statement {
+    font-size: 1.1rem;
+  }
+
+  .hero-description {
+    margin-bottom: 22px;
+  }
+
+  .hero-visual {
+    height: 325px;
+    margin: 0 8px 8px;
+    border-radius: 24px 24px 74px 24px;
+  }
+
+  .hero-visual>img {
+    object-position: 67% center;
+  }
+
+  .wheel-outline {
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+
+  .visual-caption {
+    right: 14px;
+    bottom: 17px;
+    font-size: 0.7rem;
+  }
+
+  .journey-intro {
+    padding: 82px 0 47px;
+  }
+
+  .journey-intro h2 {
+    font-size: 2.1rem;
+  }
+
+  .journey-intro p {
+    font-size: 0.97rem;
+  }
+
+  .journey {
+    padding: 0 0 8px;
+  }
+
+  .journey-track {
+    left: 17px;
+    top: 2%;
+    bottom: 5%;
+  }
+
+  .journey-stop,
+  .journey-stop--reverse {
+    grid-template-columns: 35px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: start;
+    min-height: 0;
+    margin-bottom: 72px;
+  }
+
+  .stop-node {
+    grid-column: 1;
+    grid-row: 1;
+    width: 24px;
+    height: 24px;
+    justify-self: start;
+    margin: 24px 0 0 6px;
+  }
+
+  .stop-node span {
+    width: 8px;
+    height: 8px;
+  }
+
+  .stop-copy,
+  .journey-stop--reverse .stop-copy {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0 0 27px 13px;
+  }
+
+  .stop-copy h3 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+
+  .stop-scene,
+  .journey-stop--reverse .stop-scene {
+    grid-column: 2;
+    grid-row: 2;
+    min-height: 310px;
+    margin-left: 13px;
+    border-radius: 38px 75px 42px 75px;
+  }
+
+  .model-section {
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 60px;
+    padding: 43px 28px;
+    border-radius: 30px;
+  }
+
+  .model-copy {
+    margin-bottom: 30px;
+  }
+
+  .model-copy h2 {
+    font-size: 2.45rem;
+  }
+
+  .site-footer {
+    padding-bottom: 32px;
+  }
+}
+
+@media (max-width: 470px) {
+  .hero h1 {
+    font-size: 2.35rem;
+  }
+
+  .hero-visual {
+    height: 250px;
+  }
+
+  .wheel-outline {
+    top: 13px;
+    left: 15px;
+    transform: scale(0.62);
+  }
+
+  .visual-caption {
+    max-width: calc(100% - 24px);
+  }
+
+  .stop-scene,
+  .journey-stop--reverse .stop-scene {
+    min-height: 260px;
+  }
+
+  .model-diagram {
+    grid-template-columns: 1fr;
+  }
+
+  .model-node {
+    min-height: 100px;
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    column-gap: 15px;
+    row-gap: 4px;
+    align-items: center;
+    padding: 17px;
+  }
+
+  .node-icon {
+    grid-row: 1 / 3;
+  }
+
+  .model-node small {
+    margin: 0;
+  }
+
+  .model-node strong {
+    width: auto;
+    margin: 0;
+  }
+
+  .model-signal {
+    display: none;
+  }
+
+  .site-footer p span {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .journey-progress {
+    height: 100%;
+  }
+
+  .model-signal {
+    transform: scaleX(1);
+  }
+}

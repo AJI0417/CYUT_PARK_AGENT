@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4fbff">
+  <meta name="description" content="認識朝陽主題樂園營運輔助 Agent：遊客 LINE 智慧客服、經理營運建議與維修人員設施狀態管理。">
+  <title>朝陽主題樂園營運輔助 Agent</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/png">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='images/park-hero.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="brand-lockup" aria-label="朝陽主題樂園營運輔助Agent">
+        <img class="brand-logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="朝陽主題樂園正式標誌" width="72"
+          height="72">
+        <div class="brand-text"><strong>朝陽主題樂園</strong><span>營運輔助 Agent</span></div>
+      </div>
+      <p class="header-caption">遊客服務 × 營運判斷 × 現場管理</p>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="hero-lead">一座樂園，三種角色</p>
+          <!-- data-text-delay 單位為毫秒：只控制文字何時開始，不影響每個字的播放時長。 -->
+          <h1 id="hero-title" data-text-animate="chars" data-text-delay="220">朝陽主題樂園<br><span
+              class="hero-title-accent">營運輔助</span><br><span class="hero-title-accent">Agent</span></h1>
+          <p class="hero-statement" data-text-animate="words" data-text-delay="500">把遊客問答、營運判斷與設施管理，連成更清楚的園區工作流程。</p>
+          <p class="hero-description">遊客透過 LINE 取得園區資訊；經理掌握天氣與設施現況、取得營運建議；維修人員更新設施狀態。三種角色各有合適的使用方式。</p>
+          <div class="hero-trail" aria-hidden="true"><span></span><span>往下認識三端功能</span></div>
+        </div>
+        <div class="hero-visual">
+          <img src="{{ url_for('static', filename='images/park-hero.png') }}" alt="樂園營運輔助 Agent 連結遊客問答、經理營運資訊與維修現場"
+            width="1672" height="941" fetchpriority="high">
+          <div class="hero-image-glow" aria-hidden="true"></div>
+          <div class="wheel-outline" aria-hidden="true"><span class="wheel-rim"></span><span class="wheel-stand"></span>
+          </div>
+          <div class="visual-caption" aria-hidden="true"><span class="caption-dot"></span>園區服務，從此連成一線</div>
+        </div>
+      </section>
+
+      <section class="journey-intro wrap" data-reveal aria-labelledby="journey-title">
+        <span class="intro-mark" aria-hidden="true">✦</span>
+        <h2 id="journey-title" data-text-animate="chars">三種角色，各有合適的工具。</h2>
+        <p>從遊客的一個問題，到經理的一項判斷，再到現場的一次更新，讓園區資訊在需要的地方發揮作用。</p>
+      </section>
+
+      <div class="journey wrap" id="journey">
+        <div class="journey-track" aria-hidden="true"><span class="journey-progress"></span></div>
+
+        <section class="journey-stop journey-stop--visitor" data-reveal aria-labelledby="visitor-title">
+          <span class="stop-node" aria-hidden="true"><span></span></span>
+          <div class="stop-copy">
+            <p class="role-name"><span class="role-icon role-icon--visitor" aria-hidden="true">✦</span>遊客端</p>
+            <h3 id="visitor-title" data-text-animate="chars">LINE 智慧客服</h3>
+            <p>在 LINE 詢問票務、交通、入園規則及園區常見問題，客服會參考遊客專用知識庫整理簡短回答。詢問設施目前是否開放時，則會查詢設施狀態；無法確認的資訊不會猜測答案。</p>
+            <ul class="feature-tags" aria-label="遊客端功能">
+              <li>常見問題</li>
+              <li>遊客知識庫</li>
+              <li>設施現況</li>
+            </ul>
+          </div>
+          <div class="stop-scene visitor-scene" aria-hidden="true">
+            <img class="scene-image" src="{{ url_for('static', filename='images/visitor-scene.png') }}" alt=""
+              width="1448" height="1086" loading="lazy">
+            <span class="scene-shine"></span>
+          </div>
+        </section>
+
+        <section class="journey-stop journey-stop--manager journey-stop--reverse" data-reveal
+          aria-labelledby="manager-title">
+          <span class="stop-node" aria-hidden="true"><span></span></span>
+          <div class="stop-copy">
+            <p class="role-name"><span class="role-icon role-icon--manager" aria-hidden="true">◉</span>樂園經理端</p>
+            <h3 id="manager-title" data-text-animate="chars">取得營運建議</h3>
+            <p>經理可在對話介面查詢霧峰天氣、設施狀態與營運手冊規則，並結合資料取得營運建議及待辦事項。公告由經理在公告管理頁發布；LINE 通知只有在經理明確要求後才會發送。</p>
+            <ul class="feature-tags" aria-label="經理端功能">
+              <li>天氣與設施</li>
+              <li>營運建議</li>
+              <li>公告管理</li>
+              <li>指定通知</li>
+            </ul>
+          </div>
+          <div class="stop-scene manager-scene" aria-hidden="true">
+            <img class="scene-image" src="{{ url_for('static', filename='images/manager-scene.png') }}" alt=""
+              width="1448" height="1086" loading="lazy">
+            <span class="scene-shine"></span>
+          </div>
+        </section>
+
+        <section class="journey-stop journey-stop--worker" data-reveal aria-labelledby="worker-title">
+          <span class="stop-node" aria-hidden="true"><span></span></span>
+          <div class="stop-copy">
+            <p class="role-name"><span class="role-icon role-icon--worker" aria-hidden="true">✺</span>維修工人端</p>
+            <h3 id="worker-title" data-text-animate="chars">更新設施狀態</h3>
+            <p>維修人員可查看園內設施清單，將設施狀態更新為正常開放、暫停開放或設施維修中。更新後的紀錄可供遊客客服與經理端後續查詢。</p>
+            <ul class="feature-tags" aria-label="維修工人端功能">
+              <li>查看設施</li>
+              <li>更新狀態</li>
+              <li>資訊銜接</li>
+            </ul>
+          </div>
+          <div class="stop-scene worker-scene" aria-hidden="true">
+            <img class="scene-image" src="{{ url_for('static', filename='images/worker-scene.png') }}" alt=""
+              width="1448" height="1086" loading="lazy">
+            <span class="scene-shine"></span>
+          </div>
+        </section>
+      </div>
+
+      <section class="model-section wrap" data-reveal aria-labelledby="model-title">
+        <div class="model-copy">
+          <p class="model-kicker">模型協作</p>
+          <h2 id="model-title" data-text-animate="chars">雲端與本地<br>各司其職</h2>
+          <p>雲端 Gemini 支援遊客問答與經理營運分析；LangChain 串接模型、各自的知識庫與資料工具；本地 Ollama／Gemma 參與經理指定的 LINE 通知流程。</p>
+        </div>
+        <div class="model-diagram" aria-label="Gemini、LangChain 與 Ollama／Gemma 的分工">
+          <div class="model-node model-node--cloud"><span class="node-icon"><img
+                src="{{ url_for('static', filename='images/gemini-logo.png') }}" alt="" width="38"
+                height="38"></span><small>雲端問答與分析</small><strong>Gemini</strong></div>
+          <div class="model-node model-node--bridge"><span class="node-icon"><img
+                src="{{ url_for('static', filename='images/langchain-logo.svg') }}" alt="" width="38"
+                height="38"></span><small>知識與工具串接</small><strong>LangChain</strong></div>
+          <div class="model-node model-node--local"><span class="node-icon"><img
+                src="{{ url_for('static', filename='images/ollama-logo.svg') }}" alt="" width="26"
+                height="38"></span><small>本地通知協作</small><strong>Ollama／Gemma</strong></div>
+          <span class="model-signal" aria-hidden="true"></span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap" data-reveal><span class="footer-star" aria-hidden="true">✦</span>
+      <p>朝陽主題樂園營運輔助 Agent<span>｜</span>讓遊客服務、營運判斷與現場資訊更容易掌握。</p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/4.5.0/anime.umd.min.js" defer></script>
+  <script src="{{ url_for('static', filename='js/home.js') }}"
+    data-anime-fallback="{{ url_for('static', filename='js/anime.umd.min.js') }}" defer></script>
+</body>
+
+</html>

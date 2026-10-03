@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="朝陽樂園公告管理後台">
+    <title>公告管理｜朝陽樂園</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/announcements.css') }}">
+  </head>
+
+  <body>
+    <div class="sky-ribbon" aria-hidden="true"></div>
+    <main class="container announcement-page py-4 py-lg-5">
+      <nav class="park-nav" aria-label="頁面導覽">
+        <div class="park-brand">
+          <span class="brand-wheel" aria-hidden="true"></span>
+          <span>朝陽樂園</span>
+        </div>
+        <a class="nav-link-pill" href="{{ url_for('announcement.announcement_list') }}">查看公告頁</a>
+      </nav>
+
+      <header class="park-hero hero-admin">
+        <div class="hero-copy">
+          <p class="hero-context">園區消息工作站</p>
+          <h1>讓重要消息，<br>清楚呈現在公告頁。</h1>
+          <p class="hero-description">在這裡發布與管理公告。送出前，請再次核對標題與內容。</p>
+        </div>
+        <div class="hero-wheel" aria-hidden="true"></div>
+        <div class="hero-path" aria-hidden="true"></div>
+      </header>
+
+      {% if success_message %}
+        <div class="feedback feedback-success" role="status">{{ success_message }}</div>
+      {% endif %}
+      {% if error_message %}
+        <div class="feedback feedback-error" role="alert">{{ error_message }}</div>
+      {% endif %}
+
+      <div class="admin-workspace">
+        <section class="admin-panel" aria-labelledby="publish-title">
+          <div class="panel-heading">
+            <h2 id="publish-title">發布新公告</h2>
+            <p>填寫標題與內容，發布後會出現在公告頁。</p>
+          </div>
+
+          <form action="{{ url_for('announcement.announcement_admin') }}" method="post">
+            <div class="form-body">
+              <p class="group-caption">發布資訊由系統帶入</p>
+              <div class="meta-grid">
+                <div>
+                  <label for="currentDate" class="form-label">現在日期</label>
+                  <input id="currentDate" class="form-control readonly-field" type="date" value="{{ current_date }}" readonly>
+                </div>
+                <div>
+                  <label for="currentClock" class="form-label">現在時間</label>
+                  <input id="currentClock" class="form-control readonly-field" type="time" value="{{ current_clock }}" readonly>
+                </div>
+                <div>
+                  <label for="publisher" class="form-label">發布人</label>
+                  <input id="publisher" class="form-control readonly-field" type="text" value="{{ publisher }}" readonly>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="title" class="form-label">公告標題</label>
+                <input id="title" name="title" class="form-control" type="text" value="{{ form_title }}" placeholder="例如：今日園區營運調整" required>
+              </div>
+              <div class="field-group">
+                <label for="content" class="form-label">公告內容</label>
+                <textarea id="content" name="content" class="form-control" rows="7" placeholder="請清楚說明異動內容與遊客需要留意的事項" required>{{ form_content }}</textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <span>公告發布後可刪除，目前無法直接編輯。</span>
+              <div class="action-group">
+                <button class="btn btn-soft" type="reset">清除內容</button>
+                <button class="btn btn-main" type="submit">發布公告</button>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <aside class="notice-guide" aria-label="發布提醒">
+          <span class="guide-icon" aria-hidden="true">✦</span>
+          <h2>發布前的小提醒</h2>
+          <p>請先確認日期、園區異動與遊客須知都已寫清楚。</p>
+          <p>公告發布不會自動推播 LINE 通知；需要推播時，請另外使用通知功能。</p>
+        </aside>
+      </div>
+
+      <section class="published-section" aria-labelledby="published-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="published-title">已發布公告</h2>
+            <p>最新公告排在最上方。</p>
+          </div>
+          <span class="announcement-count">共 {{ announcements|length }} 則</span>
+        </div>
+
+        {% if announcements %}
+          <ol class="announcement-list admin-list">
+            {% for announcement in announcements %}
+              <li class="announcement-card admin-card">
+                <article class="announcement-body">
+                  <div class="notice-main">
+                    <h3 class="announcement-title">{{ announcement["title"] }}</h3>
+                    <p class="announcement-time">{{ announcement["published_at"] }} · {{ announcement["publisher"] }}</p>
+                    <div class="announcement-content admin-preview">{{ announcement["content"] }}</div>
+                  </div>
+                  <form
+                    class="delete-form"
+                    action="{{ url_for('announcement.delete_announcement', announcement_id=announcement['id']) }}"
+                    method="post"
+                    onsubmit="return confirm('確定要刪除這則公告嗎？');"
+                  >
+                    <button class="btn delete-button" type="submit" aria-label="刪除公告：{{ announcement['title'] }}">
+                      <span aria-hidden="true">×</span> 刪除
+                    </button>
+                  </form>
+                </article>
+              </li>
+            {% endfor %}
+          </ol>
+        {% else %}
+          <div class="empty-state">
+            <span class="empty-orbit" aria-hidden="true"></span>
+            <h3>目前沒有公告</h3>
+            <p>填寫上方表單，就能發布第一則園區消息。</p>
+          </div>
+        {% endif %}
+      </section>
+
+      <footer class="park-footer">朝陽樂園公告管理中心</footer>
+    </main>
+  </body>
+</html>

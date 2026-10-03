@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="朝陽樂園設施狀態管理">
+    <title>設施狀態管理｜朝陽樂園</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/worker.css') }}">
+  </head>
+
+  <body>
+    <div class="sky-ribbon" aria-hidden="true"></div>
+    <main class="container park-shell py-4 py-lg-5">
+      <nav class="park-nav" aria-label="目前頁面">
+        <div class="park-brand">
+          <span class="brand-wheel" aria-hidden="true"></span>
+          <span>朝陽樂園</span>
+        </div>
+        <span class="nav-location">設施管理中心</span>
+      </nav>
+
+      <header class="facility-hero">
+        <div class="hero-copy">
+          <p class="hero-context">園區設施工作站</p>
+          <h1>每一項設施，<br>都在掌握之中。</h1>
+          <p class="hero-description">查看目前狀態、篩選設施，確認後一次儲存更新。</p>
+        </div>
+        <div class="hero-wheel" aria-hidden="true"></div>
+        <div class="hero-path" aria-hidden="true"></div>
+      </header>
+
+      <section class="status-key" aria-label="設施狀態說明">
+        <span class="key-title">狀態標示</span>
+        <span class="key-item key-open"><span class="key-dot"></span>正常開放</span>
+        <span class="key-item key-paused"><span class="key-dot"></span>暫停開放</span>
+        <span class="key-item key-maintenance"><span class="key-dot"></span>設施維修中</span>
+      </section>
+
+      <form id="facilityForm" action="{{ url_for('facility.update') }}" method="post">
+        <section class="management-panel" aria-labelledby="facility-list-title">
+          <div class="panel-header">
+            <div>
+              <h2 id="facility-list-title">設施清單</h2>
+              <p>變更下方狀態後，按「儲存設施狀態」才會生效。</p>
+            </div>
+            <p id="resultCount" class="result-count" aria-live="polite">
+              目前顯示 {{ facilities|length }} 項設施
+            </p>
+          </div>
+
+          <div class="filter-bar">
+            <label for="categoryFilter" class="form-label">設施類別</label>
+            <select
+              id="categoryFilter"
+              name="category"
+              class="form-select category-select"
+              aria-controls="facilityTable"
+            >
+              <option value="all">全部設施</option>
+              <option value="Indoor Facilities">室內設施</option>
+              <option value="Outdoor Facilities">室外設施</option>
+              <option value="Public Areas">公共區域</option>
+            </select>
+          </div>
+
+          <div class="table-responsive">
+            <table id="facilityTable" class="table facility-table align-middle">
+              <thead>
+                <tr>
+                  <th scope="col">設施名稱</th>
+                  <th scope="col">設施類別</th>
+                  <th scope="col">目前設定</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for facility in facilities %}
+                  <tr data-category="{{ facility['設施類別'] }}">
+                    <td data-label="設施名稱" class="facility-name">{{ facility["設施名稱"] }}</td>
+                    <td data-label="設施類別">
+                      <span class="category-tag">
+                        {% if facility["設施類別"] == "Indoor Facilities" %}室內設施
+                        {% elif facility["設施類別"] == "Outdoor Facilities" %}室外設施
+                        {% elif facility["設施類別"] == "Public Areas" %}公共區域
+                        {% else %}{{ facility["設施類別"] }}{% endif %}
+                      </span>
+                    </td>
+                    <td data-label="目前設定">
+                      <select
+                        class="form-select status-select"
+                        name="status_{{ facility['id'] }}"
+                        aria-label="{{ facility['設施名稱'] }}的狀態"
+                      >
+                        <option value="正常開放" {% if facility["設施狀態"] == "正常開放" %}selected{% endif %}>正常開放</option>
+                        <option value="暫停開放" {% if facility["設施狀態"] == "暫停開放" %}selected{% endif %}>暫停開放</option>
+                        <option value="設施維修中" {% if facility["設施狀態"] == "設施維修中" %}selected{% endif %}>設施維修中</option>
+                      </select>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-actions">
+            <p>請確認所有設施狀態後再儲存。</p>
+            <div class="action-group">
+              <button type="reset" class="btn btn-soft">還原選擇</button>
+              <button type="submit" class="btn btn-main">儲存設施狀態</button>
+            </div>
+          </div>
+        </section>
+      </form>
+
+      <footer class="park-footer">朝陽樂園設施管理中心</footer>
+    </main>
+
+    <script>
+      const categoryFilter = document.querySelector("#categoryFilter");
+      const facilityForm = document.querySelector("#facilityForm");
+      const facilityRows = document.querySelectorAll("#facilityTable tbody tr");
+      const resultCount = document.querySelector("#resultCount");
+
+      function filterFacilities() {
+        const selectedCategory = categoryFilter.value;
+        let visibleCount = 0;
+
+        facilityRows.forEach((row) => {
+          const shouldShow =
+            selectedCategory === "all" ||
+            row.dataset.category === selectedCategory;
+
+          row.hidden = !shouldShow;
+          if (shouldShow) visibleCount += 1;
+        });
+
+        resultCount.textContent = `目前顯示 ${visibleCount} 項設施`;
+      }
+
+      function updateStatusStyle(select) {
+        select.classList.remove("status-paused", "status-maintenance");
+
+        if (select.value === "暫停開放") {
+          select.classList.add("status-paused");
+        } else if (select.value === "設施維修中") {
+          select.classList.add("status-maintenance");
+        }
+      }
+
+      categoryFilter.addEventListener("change", filterFacilities);
+
+      document.querySelectorAll(".status-select").forEach((select) => {
+        updateStatusStyle(select);
+        select.addEventListener("change", () => updateStatusStyle(select));
+      });
+
+      facilityForm.addEventListener("reset", () => {
+        requestAnimationFrame(() => {
+          filterFacilities();
+          document.querySelectorAll(".status-select").forEach(updateStatusStyle);
+        });
+      });
+    </script>
+  </body>
+</html>
