@@ -26,3 +26,5 @@ db/cyut_park.db-*
 *.log
 
 .vscode/
+
+vector_indexes/
