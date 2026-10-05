@@ -22,7 +22,6 @@ langchain-text-splitters==1.1.1
 langchain-huggingface==1.2.1
 sentence-transformers==5.2.3
 transformers==5.2.0
-faiss-cpu==1.13.2
 
 # HTTP and environment configuration
 requests==2.32.5
