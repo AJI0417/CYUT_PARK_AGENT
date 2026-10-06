@@ -195,7 +195,7 @@ LINE 平台無法存取電腦上的 `127.0.0.1`。要接收真實 LINE Webhook�
 
 1. 開啟 `http://127.0.0.1:5000/worker`，查看每項設施目前狀態。
 2. 在需調整的設施旁選擇「正常開放」、「暫停開放」或「設施維修中」，按「儲存設施狀態」。
-3. 確認成功頁；之後再由遊客或經理端查詢設施，才會取得更新後的狀態。儲存本身不會推播 LINE。
+3. 確認成功頁：之後再由遊客或經理端查詢設施，才會取得更新後的狀態。儲存本身不會推播 LINE。
 
 ### 經理：發布公告
 
@@ -221,20 +221,17 @@ CYUT_PARK_AGENT\
 ├─ services\            # LINE Reply API 呼叫
 ├─ static\              # Flask 頁面的 CSS、圖片與 JavaScript
 ├─ templates\           # Flask HTML 模板
-├─ app.py                # Chainlit 經理介面
-├─ server.py             # Flask 與資料庫初始化入口
-├─ config.py             # 路徑、時區與環境變數
-├─ requirements.txt      # 固定的 Python 依賴版本
-├─ chainlit.md            # 經理端新手教學
-├─ 專案工作流程.md        # 既有流程筆記；索引與公告段落待同步
-├─ 系統區塊圖.md          # Mermaid 系統圖；索引與公告段落待同步
-├─ 系統架構圖.png         # 系統圖圖片版；應與現行程式重新核對
-├─ 樂園營運手冊.md        # 經理 RAG 知識來源
+├─ app.py               # Chainlit 經理介面
+├─ server.py            # Flask 與資料庫初始化入口
+├─ config.py            # 路徑、時區與環境變數
+├─ requirements.txt     # 固定的 Python 依賴版本
+├─ chainlit.md          # 經理端新手教學
+├─ 專案工作流程.md       # 既有流程筆記；索引與公告段落待同步
+├─ 系統區塊圖.md         # Mermaid 系統圖；索引與公告段落待同步
+├─ 系統架構圖.png        # 系統圖圖片版；應與現行程式重新核對
+├─ 樂園營運手冊.md       # 經理 RAG 知識來源
 └─ 朝陽樂園遊客知識庫手冊.md  # 遊客 RAG 知識來源
 ```
-
-執行後另會產生未納入 Git 的 `vector_indexes/operations.json`、`vector_indexes/visitor.json` 及 `db/cyut_park.db`。
-`專案工作流程.md`、`系統區塊圖.md` 目前仍描述舊 FAISS 索引與公告不推播；閱讀這些輔助文件時請以本 README 和現行程式為準。
 
 ## 常見問題
 
