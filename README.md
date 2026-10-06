@@ -270,3 +270,7 @@ ollama pull gemma4:e2b
 ### 修改手冊後仍取得舊內容
 
 修改 Markdown 不會自動更新已載入的索引。請先停止對應服務，刪除 `vector_indexes/operations.json` 或 `vector_indexes/visitor.json` 中**對應的一個檔案**，再重啟 Chainlit 或 Flask。不要刪除另一份手冊的索引，也不要期待刪除舊 FAISS 資料夾能重建目前的 InMemoryVectorStore。
+
+## 系統架構圖
+
+![image](系統架構圖.png)
