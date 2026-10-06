@@ -2,6 +2,8 @@ from datetime import datetime
 
 from flask import Blueprint, abort, redirect, render_template, request, url_for
 
+from services.line_service import broadcast_text_message
+
 import config
 from db.announcement_db import (
     create_announcement,
@@ -39,21 +41,42 @@ def announcement_admin():
         if not form_title or not form_content:
             error_message = "公告標題和公告內容都必須填寫。"
         else:
+            published_at = get_current_time()
             create_announcement(
-                get_current_time(),
+                published_at,
                 config.ANNOUNCEMENT_PUBLISHER,
                 form_title,
                 form_content,
             )
 
+            line_message_from_announcements = (
+                "📢 朝陽樂園最新公告\n\n"
+                f"【{form_title}】\n\n"
+                f"{form_content}\n\n"
+                f"發布時間：{published_at}"
+            )
+
+            line_result = broadcast_text_message(line_message_from_announcements)
+
+            if line_result["status"] == "success":
+                result = "created_and_broadcasted"
+            else:
+                result = "created_broadcast_failed"
+
             return redirect(
-                url_for("announcement.announcement_admin", result="created")
+                url_for("announcement.announcement_admin",result = result)
             )
 
     success_message = None
-    if request.args.get("result") == "created":
-        success_message = "公告已成功發布。"
-    elif request.args.get("result") == "deleted":
+    result = request.args.get("result")
+
+    if result == "created_and_broadcasted":
+        success_message = "公告已成功發布，並已同步發送 LINE 廣播訊息。"
+
+    elif result == "created_broadcast_failed":
+        success_message = "公告已成功發布，但 LINE 廣播訊息發送失敗。"
+
+    elif result == "deleted":
         success_message = "公告已成功刪除。"
 
     status_code = 400 if error_message else 200

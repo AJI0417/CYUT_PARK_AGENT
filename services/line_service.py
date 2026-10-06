@@ -42,7 +42,7 @@ def reply_add_friend_message(reply_token):
         ],
     }
 
-    requests.post(url, headers=headers, json=data)
+    requests.post(url, headers=headers, json=data,timeout=15)
 
 
 
@@ -64,7 +64,7 @@ def reply_message(reply_token, flex_content, alt_text):
         ],
     }
 
-    requests.post(url, headers=headers, json=data)
+    requests.post(url, headers=headers, json=data,timeout=15)
 
 
 def reply_text_message(reply_token: str, text: str) -> None:
@@ -84,6 +84,40 @@ def reply_text_message(reply_token: str, text: str) -> None:
         ],
     }
 
-    requests.post(url,headers=headers,json=data,)
+    requests.post(url,headers=headers,json=data,timeout=15)
+
+
+def broadcast_text_message(text: str) -> dict:
+    """
+    將純文字訊息廣播給 LINE 官方帳號的所有好友。
+    """
+    url = f"{config.LINE_API_BASE}/message/broadcast"
+    headers={
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {config.CHANNEL_ACCESS_TOKEN}",
+    }
+    data={
+        "messages": [
+            {
+                "type": "text",
+                "text": text,
+            }
+        ]
+    }
+
+    response = requests.post(url,headers=headers,json=data,timeout=15)
+
+    if response.ok:
+        return {
+            "status": "success",
+            "status_code": response.status_code,
+        }
+    else:
+        return {
+            "status": "error",
+            "status_code": response.status_code,
+            "message": response.text,
+        }
+
 
 
