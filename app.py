@@ -21,28 +21,28 @@ async def on_chat_start():
 - 「目前有哪些設施維修中？」
 - 「如果下大雨，依營運手冊應如何處理？」
 - 「根據目前天氣與設施狀態，給我營運建議。」
-要發布公告，請開啟[公告管理頁](http://127.0.0.1:5000/admin/announcements)。營運建議不會自動變更設施狀態或發送通知；發布公告也不會自動推播 LINE。"""
+要發布公告，請開啟[公告管理頁](http://127.0.0.1:5000/admin/announcements)。營運建議不會自動變更設施狀態或發送通知；發布公告也會自動推播 LINE。"""
 
     await cl.Message(content=welcome_message).send()
 
 
 @cl.on_message
 async def on_message(message: cl.Message):
-
     agent = cl.user_session.get("agent")
     thread_config = cl.user_session.get("thread_config")
 
+    # 先讓經理知道系統正在處理問題。
     ui_msg = cl.Message(content="思考中...")
     await ui_msg.send()
 
-    final_text = ""
+    reply_started = False
 
     async for msg, _metadata in agent.astream(
         {
             "messages": [
                 {
                     "role": "user",
-                    "content": message.content
+                    "content": message.content,
                 }
             ]
         },
@@ -50,15 +50,32 @@ async def on_message(message: cl.Message):
         stream_mode="messages",
     ):
         if isinstance(msg, ToolMessage):
-            tool_name = msg.name or "未知工具"
-            ui_msg.content = f"呼叫工具中：{tool_name}..."
-            await ui_msg.update()
+            # 回答開始前，可以顯示工具狀態。
+            # 回答開始後，不再用工具狀態覆蓋已顯示的文字。
+            if not reply_started:
+                tool_name = msg.name or "未知工具"
+                ui_msg.content = f"呼叫工具中：{tool_name}..."
+                await ui_msg.update()
+
         elif isinstance(msg, AIMessageChunk):
             text = msg.text
-            if text:
-                final_text += text
-                ui_msg.content = "回覆內容如下:\n\n" + final_text
+
+            # 有些片段不含回答文字，直接等待下一個片段。
+            if not text:
+                continue
+
+            if not reply_started:
+                # 第一段回答出現時，清除「思考中」或工具狀態。
+                ui_msg.content = "回覆內容如下:\n\n"
                 await ui_msg.update()
-                    
-    ui_msg.content = final_text or "模型未產生文字回覆。"
+                reply_started = True
+
+            # stream_token() 會把新文字加入 ui_msg.content，
+            # 並逐段顯示在 Chainlit 畫面。
+            await ui_msg.stream_token(text)
+
+    if not reply_started:
+        ui_msg.content = "模型未產生文字回覆。"
+
+    # 結束串流，送出並保存這則訊息的最終狀態。
     await ui_msg.update()
