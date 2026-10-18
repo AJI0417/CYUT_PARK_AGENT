@@ -17,8 +17,8 @@ VECTOR_FILE = PROJECT_ROOT / "vector_indexes" / "operations.json"
 EMBEDDING_MODEL = "BAAI/bge-base-zh-v1.5"
 
 # 單位是「字元」，不是 token。
-CHUNK_SIZE = 350
-CHUNK_OVERLAP = 60
+CHUNK_SIZE = 480
+CHUNK_OVERLAP = 70
 
 
 def _header_prefix(metadata: dict) -> str:
@@ -54,24 +54,47 @@ def _split_markdown(markdown_text: str) -> list[Document]:
     )
 
     sections = header_splitter.split_text(markdown_text)
+
+    # 通知段落很短；把同章的判斷條件、設施規則與通知放在同一塊。
+    conditions_by_chapter = {
+        section.metadata["chapter"]: section.page_content
+        for section in sections
+        if section.metadata.get("section", "").endswith("天氣判斷條件")
+        and "chapter" in section.metadata
+    }
+    facilities_by_chapter = {
+        section.metadata["chapter"]: section.page_content
+        for section in sections
+        if section.metadata.get("section", "").endswith("設施開放規則")
+        and "chapter" in section.metadata
+    }
+
     chunks: list[Document] = []
 
     for section in sections:
         prefix = _header_prefix(section.metadata)
+        body_text = section.page_content
+
+        if section.metadata.get("section", "").endswith("通知類型"):
+            chapter = section.metadata.get("chapter")
+            conditions = conditions_by_chapter.get(chapter)
+            facilities = facilities_by_chapter.get(chapter)
+            if conditions and facilities:
+                body_text = (
+                    f"判斷條件：\n{conditions}\n\n"
+                    f"設施開放規則：\n{facilities}\n\n"
+                    f"通知類型：\n{body_text}"
+                )
 
         # Overlap 只發生在同一個標題段落內，不混入別的章節。
-        for body in text_splitter.split_text(section.page_content):
+        for body in text_splitter.split_text(body_text):
             page_content = f"{prefix}\n\n{body}" if prefix else body
 
             metadata = {
                 **section.metadata,
                 "source": str(MARKDOWN_FILE_PATH),
             }
-
-            wx_match = re.search(r"WX-\d{3}[A-Z]?", metadata.get("section", ""))
-            if wx_match:
-                metadata["wx_id"] = wx_match.group(0)
-
+            
             chunks.append(
                 Document(page_content=page_content, metadata=metadata)
             )

@@ -116,7 +116,53 @@ def push_worker_message() -> dict:
         "body": response.text,
     }
 
+#發送促銷通知給遊客
+@mcp.tool()
+def push_promotion_message() -> dict:
+    """
+    向遊客發送固定的「促銷通知」Flex Message。
+    只有經理明確要求通知游客時才能使用。
+    """
 
+    notification_type = "促銷通知"
+
+    flex_message = {
+        "type": "flex",
+        "altText": notification_type,
+        "contents": FLEX_MESSAGES[notification_type],
+    }
+
+    response = requests.post(
+        f"{config.LINE_API_BASE}/message/broadcast",
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": (
+                f"Bearer {config.CHANNEL_ACCESS_TOKEN}"
+            ),
+        },
+        json={
+            "messages": [
+                flex_message
+            ],
+        },
+        timeout=15,
+    )
+
+    if response.ok:
+        return {
+            "status": "success",
+            "status_code": response.status_code,
+            "notification_type": notification_type,
+            "recipient": "促銷通知",
+        }
+
+    return {
+        "status": "error",
+        "status_code": response.status_code,
+        "notification_type": notification_type,
+        "recipient": "促銷通知",
+        "body": response.text,
+    }
 
 
 

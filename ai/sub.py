@@ -46,9 +46,15 @@ async def create_line_subagent_tool():
                 "請只呼叫一次 push_worker_message，不要傳入任何參數，"
                 "並依工具真實結果回覆。"
             )
+        elif notification_type == "促銷通知":
+            instruction = (
+            "上游已確認經理明確要求發送促銷通知。"
+            "請只呼叫一次 push_promotion_message，不要傳入任何參數，"
+            "並依工具真實結果回覆。"
+        )
         else:
             instruction = (
-                "上游已確認經理明確要求發送遊客天氣通知。"
+                "上游已確認經理明確要求發送遊客通知。"
                 "請只呼叫一次 push_weather_message，"
                 f"notification_type 必須精確使用「{notification_type}」，"
                 "並依工具真實結果回覆。"
