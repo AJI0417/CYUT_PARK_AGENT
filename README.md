@@ -157,29 +157,6 @@ ollama pull gemma4:e2b
 
 完整經理操作教學見 [chainlit.md](chainlit.md)。AI 回答與營運建議供人員參考；當日開園、停駛及恢復仍以園方確認與現場公告為準。
 
-## 📁 專案結構
+```
 
-```text
-CYUT_PARK_AGENT/
-├─ ai/                         # 經理、遊客與通知 Agent，以及工具和提示詞
-├─ db/                         # SQLite 初始化、設施與公告資料存取
-├─ docs/diagrams/               # 架構、區塊與流程圖的圖片及 Mermaid 原始檔
-├─ Line_template/               # LINE 固定選單與通知 Flex 模板
-├─ mcp_client/                  # MCP 用戶端連線設定
-├─ mcp_servers/                 # 天氣、設施狀態、LINE 通知工具服務
-├─ rag/                         # 營運與遊客兩份知識庫的檢索處理
-├─ routes/                      # Flask Webhook、設施與公告路由
-├─ services/                    # LINE 回覆、載入動畫與文字廣播
-├─ static/                      # CSS、JavaScript 與圖片
-├─ templates/                   # 首頁、維修及公告 HTML 頁面
-├─ app.py                       # Chainlit 經理對話入口
-├─ server.py                    # Flask 網站入口
-├─ config.py                    # 環境變數與共用設定
-├─ requirements.txt             # Python 套件版本
-├─ chainlit.md                  # 經理操作教學
-├─ 系統架構圖.md                 # 系統連線與部署分工
-├─ 系統區塊圖.md                 # 功能區塊與資料流
-├─ 專案工作流程.md               # 三端及公告操作流程
-├─ 樂園營運手冊.md               # 經理使用的內部知識來源
-└─ 朝陽樂園遊客知識庫手冊.md     # 遊客客服使用的知識來源
 ```
