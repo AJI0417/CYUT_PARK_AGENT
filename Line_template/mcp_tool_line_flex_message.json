@@ -74,10 +74,12 @@
                     "contents": [
                         {
                             "type": "text",
-                            "text": "✅樂園正常營運",
+                            "text": "✅樂園正常營運 \n 實際開放情形依設施狀態與現場公告為準",
                             "weight": "bold",
-                            "size": "sm",
-                            "color": "#1B5E20"
+                            "size": "13px",
+                            "color": "#1B5E20",
+                            "wrap": true,
+                            "align": "center"
                         }
                     ]
                 },
@@ -225,10 +227,12 @@
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "✅設施正常營運",
+                                    "text": "✅設施正常營運 \n 實際開放情形依設施狀態與現場公告為準",
                                     "weight": "bold",
-                                    "size": "sm",
-                                    "color": "#1B5E20"
+                                    "size": "13px",
+                                    "color": "#1B5E20",
+                                    "wrap": true,
+                                    "align": "center"
                                 }
                             ]
                         }
@@ -369,7 +373,7 @@
                         {
                             "type": "box",
                             "layout": "vertical",
-                            "backgroundColor": "#FFF3E0",
+                            "backgroundColor": "#E65100",
                             "borderColor": "#FFE0B2",
                             "borderWidth": "light",
                             "cornerRadius": "md",
@@ -378,10 +382,10 @@
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "⚠️室外設施評估是否開放中",
+                                    "text": "⚠️室外遊樂設施全數暫停",
                                     "weight": "bold",
                                     "size": "sm",
-                                    "color": "#E65100"
+                                    "color": "#FFFFFF"
                                 }
                             ]
                         },
@@ -464,349 +468,7 @@
                     "action": {
                         "type": "uri",
                         "label": "查看樂園公告",
-                        "uri": "https://cyut-park-agent.ngrok.app/announcements"
-                    }
-                }
-            ]
-        }
-    },
-    "豪雨通知": {
-        "type": "bubble",
-        "hero": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-                {
-                    "type": "image",
-                    "url": "https://i.imgur.com/4Oez8jg.jpeg",
-                    "size": "full",
-                    "aspectMode": "cover",
-                    "aspectRatio": "1:1"
-                }
-            ]
-        },
-        "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-                {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "backgroundColor": "#FF5722",
-                            "cornerRadius": "md",
-                            "paddingStart": "8px",
-                            "paddingEnd": "8px",
-                            "paddingTop": "2px",
-                            "paddingBottom": "2px",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "天氣警報",
-                                    "color": "#FFFFFF",
-                                    "size": "xs",
-                                    "weight": "bold",
-                                    "align": "center"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "margin": "md",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": " 豪雨",
-                            "weight": "bold",
-                            "size": "3xl",
-                            "color": "#D84315",
-                            "flex": 0
-                        }
-                    ],
-                    "alignItems": "flex-end"
-                },
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "margin": "md",
-                    "spacing": "xs",
-                    "contents": [
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "backgroundColor": "#FFEBEE",
-                            "borderColor": "#FFCDD2",
-                            "borderWidth": "light",
-                            "cornerRadius": "md",
-                            "paddingAll": "sm",
-                            "alignItems": "center",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "⛔ 戶外設施全面暫停",
-                                    "weight": "bold",
-                                    "size": "sm",
-                                    "color": "#C62828"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "backgroundColor": "#E8F5E9",
-                            "borderColor": "#A5D6A7",
-                            "borderWidth": "light",
-                            "cornerRadius": "md",
-                            "paddingAll": "sm",
-                            "alignItems": "center",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "✅ 室內設施維持開放",
-                                    "weight": "bold",
-                                    "size": "sm",
-                                    "color": "#1B5E20"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "margin": "lg",
-                    "backgroundColor": "#F0F4F8",
-                    "cornerRadius": "md",
-                    "paddingAll": "md",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "遊園小提醒",
-                            "weight": "bold",
-                            "size": "xs",
-                            "color": "#5A6B7C",
-                            "margin": "none"
-                        },
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "margin": "sm",
-                            "spacing": "xs",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "⛈️ 留意雷擊及強陣風。",
-                                    "size": "xs",
-                                    "color": "#333333"
-                                },
-                                {
-                                    "type": "text",
-                                    "text": "⚠️ 道路易積水，請小心步伐。",
-                                    "size": "xs",
-                                    "color": "#333333"
-                                },
-                                {
-                                    "type": "text",
-                                    "text": "🏠 建議遊客盡量待在室內場館。",
-                                    "size": "xs",
-                                    "color": "#333333"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        "footer": {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
-                {
-                    "type": "button",
-                    "style": "primary",
-                    "color": "#FF9800",
-                    "action": {
-                        "type": "uri",
-                        "label": "查看樂園公告",
-                        "uri": "http://127.0.0.1:5000/announcements"
-                    }
-                }
-            ]
-        }
-    },
-    "豪大雨通知": {
-        "type": "bubble",
-        "hero": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-                {
-                    "type": "image",
-                    "url": "https://i.imgur.com/IvbnJG8.jpeg",
-                    "size": "full",
-                    "aspectMode": "cover",
-                    "aspectRatio": "1:1"
-                }
-            ]
-        },
-        "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-                {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "backgroundColor": "#B71C1C",
-                            "cornerRadius": "md",
-                            "paddingStart": "8px",
-                            "paddingEnd": "8px",
-                            "paddingTop": "2px",
-                            "paddingBottom": "2px",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "緊急警報",
-                                    "color": "#FFFFFF",
-                                    "size": "xs",
-                                    "weight": "bold",
-                                    "align": "center"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "margin": "md",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": " 豪大雨",
-                            "weight": "bold",
-                            "size": "3xl",
-                            "color": "#B71C1C",
-                            "flex": 0
-                        }
-                    ],
-                    "alignItems": "flex-end"
-                },
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "margin": "md",
-                    "spacing": "xs",
-                    "contents": [
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "backgroundColor": "#FFEBEE",
-                            "borderColor": "#EF9A9A",
-                            "borderWidth": "light",
-                            "cornerRadius": "md",
-                            "paddingAll": "sm",
-                            "alignItems": "center",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "⛔ 戶外設施全面關閉",
-                                    "weight": "bold",
-                                    "size": "sm",
-                                    "color": "#C62828"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "backgroundColor": "#FFF3E0",
-                            "borderColor": "#FFE0B2",
-                            "borderWidth": "light",
-                            "cornerRadius": "md",
-                            "paddingAll": "sm",
-                            "alignItems": "center",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "⚠️ 園區視雨勢進行安全管制",
-                                    "weight": "bold",
-                                    "size": "sm",
-                                    "color": "#E65100"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "margin": "lg",
-                    "backgroundColor": "#F0F4F8",
-                    "cornerRadius": "md",
-                    "paddingAll": "md",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "避難小提醒",
-                            "weight": "bold",
-                            "size": "xs",
-                            "color": "#D32F2F",
-                            "margin": "none"
-                        },
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "margin": "sm",
-                            "spacing": "xs",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "🚫 請勿前往低窪及積水處。",
-                                    "size": "xs",
-                                    "color": "#333333"
-                                },
-                                {
-                                    "type": "text",
-                                    "text": "📢 請聽從園區工作人員指示引導。",
-                                    "size": "xs",
-                                    "color": "#333333"
-                                },
-                                {
-                                    "type": "text",
-                                    "text": "🛑 暫緩移動，確保自身安全第一。",
-                                    "size": "xs",
-                                    "color": "#333333"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        "footer": {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
-                {
-                    "type": "button",
-                    "style": "primary",
-                    "color": "#D32F2F",
-                    "action": {
-                        "type": "uri",
-                        "label": "聯繫客服中心",
-                        "uri": "https://docs.google.com/forms/d/e/1FAIpQLSfSe6gJYBv63wkzlAVNolmhESg_3XbzKqPf_W3wFPWP4znJvw/viewform?usp=header"
+                        "uri": "http/announcements"
                     }
                 }
             ]
@@ -847,7 +509,7 @@
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "強風特報",
+                                    "text": "強風提醒",
                                     "color": "#FFFFFF",
                                     "size": "xs",
                                     "weight": "bold",
@@ -859,7 +521,7 @@
                 },
                 {
                     "type": "box",
-                    "layout": "horizontal",
+                    "layout": "vertical",
                     "margin": "md",
                     "contents": [
                         {
@@ -868,10 +530,11 @@
                             "weight": "bold",
                             "size": "3xl",
                             "color": "#E65100",
-                            "flex": 0
+                            "flex": 0,
+                            "align": "center"
                         }
                     ],
-                    "alignItems": "flex-end"
+                    "alignItems": "center"
                 },
                 {
                     "type": "box",
@@ -891,7 +554,7 @@
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "⛔ 摩天輪、大怒神暫停",
+                                    "text": "⛔ 摩天輪、大怒神、飛天盪鞦韆 暫停",
                                     "weight": "bold",
                                     "size": "sm",
                                     "color": "#E65100"
@@ -943,7 +606,7 @@
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "🌬️ 瞬間陣風大，請小心腳步。",
+                                    "text": "🌬️ 風勢較強，請留意周邊環境",
                                     "size": "xs",
                                     "color": "#333333"
                                 },
@@ -1127,7 +790,129 @@
                     "action": {
                         "type": "uri",
                         "label": "填寫報修單",
-                        "uri": "https://cyut-park-agent.ngrok.app/worker"
+                        "uri": "http:127.0.0.1:5000/worker"
+                    }
+                }
+            ]
+        }
+    },
+    "促銷通知": {
+        "type": "bubble",
+        "hero": {
+            "type": "image",
+            "url": "https://i.imgur.com/YTsWbjA.jpeg",
+            "size": "full",
+            "aspectRatio": "1:1",
+            "aspectMode": "cover"
+        },
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                {
+                    "type": "text",
+                    "text": "促銷通知",
+                    "weight": "bold",
+                    "size": "xxl",
+                    "color": "#FF5722"
+                },
+                {
+                    "type": "text",
+                    "text": "限時清涼優惠，快來購買！",
+                    "size": "sm",
+                    "color": "#999999",
+                    "margin": "sm"
+                },
+                {
+                    "type": "separator",
+                    "margin": "lg",
+                    "color": "#E0E0E0"
+                },
+                {
+                    "type": "box",
+                    "layout": "vertical",
+                    "margin": "lg",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "🍹沁涼飲料",
+                                    "size": "xl",
+                                    "color": "#555555",
+                                    "weight": "bold",
+                                    "flex": 2
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "全面 9 折",
+                                    "size": "xl",
+                                    "color": "#D32F2F",
+                                    "weight": "bold",
+                                    "align": "end",
+                                    "flex": 2
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "text": "原價：60元 / 杯",
+                            "size": "xxs",
+                            "color": "#999999",
+                            "align": "end"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "margin": "md",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "🍦指定冰品",
+                                    "size": "xl",
+                                    "color": "#555555",
+                                    "weight": "bold",
+                                    "flex": 2
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "買 一 送 一",
+                                    "size": "lg",
+                                    "color": "#D32F2F",
+                                    "weight": "bold",
+                                    "align": "end",
+                                    "flex": 2
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "text": "原價：50元 / 份",
+                            "size": "xxs",
+                            "color": "#999999",
+                            "align": "end"
+                        }
+                    ]
+                }
+            ]
+        },
+        "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+                {
+                    "type": "button",
+                    "style": "primary",
+                    "height": "sm",
+                    "color": "#FF5722",
+                    "action": {
+                        "type": "uri",
+                        "label": "查看樂園公告",
+                        "uri": "http://127.0.0.1:5000/announcements"
                     }
                 }
             ]
